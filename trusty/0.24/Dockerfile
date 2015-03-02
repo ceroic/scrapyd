@@ -7,7 +7,7 @@ RUN echo 'deb http://archive.scrapy.org/ubuntu scrapy main' | sudo tee /etc/apt/
 RUN sudo apt-get update && sudo apt-get install -y scrapy-0.24 scrapyd
 
 # Install some standard libs
-RUN pip install requests
+RUN pip install requests celery[redis]
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
