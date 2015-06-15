@@ -9,6 +9,9 @@ RUN sudo apt-get update && sudo apt-get install -y scrapy-0.24 scrapyd
 # Install some standard libs
 RUN pip install requests celery[redis]
 
+# Add our defaults file for increasing file limit
+COPY scrapyd /etc/default/
+
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
