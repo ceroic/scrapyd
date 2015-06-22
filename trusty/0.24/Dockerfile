@@ -7,7 +7,7 @@ RUN echo 'deb http://archive.scrapy.org/ubuntu scrapy main' | sudo tee /etc/apt/
 RUN sudo apt-get update && sudo apt-get install -y scrapy-0.24 scrapyd
 
 # Install some standard libs
-RUN pip install requests celery[redis]
+RUN pip install requests celery[redis] PyPDF2
 
 # Add our defaults file for increasing file limit
 COPY scrapyd /etc/default/
